@@ -1,3 +1,5 @@
+from RGBW import RGBW
+
 
 class LightControl():
 
@@ -7,9 +9,9 @@ class LightControl():
         :param color: String
         :return:
         """
-        pass
+        self.setRGBWAll(RGBW().setNaturalColor(color))
 
-    def setRGBAll(self, red, green, blue):
+    def setRGBWAll(self, red, green, blue, white):
         """Set color for all LEDs using rgb notation
 
         :param red: int
@@ -17,14 +19,21 @@ class LightControl():
         :param blue: int
         :return:
         """
-        pass
+        rgbw = RGBW()
+        rgbw.red = red
+        rgbw.green = green
+        rgbw.blue = blue
+        rgbw.white = white
 
-    def setRGBAll(self, rgb_obj):
-        """Set color for all LEDs using rgb object
+        self.setRGBWAll(rgbw)
 
-        :param rgb_obj: RGB
+    def setRGBWAll(self, rgb_obj):
+        """Set color for all LEDs using rgbw object
+
+        :param rgb_obj: RGBW
         :return:
         """
+        pass
 
     def setColorLed(self, led_number, color):
         """Set a specific color for one LED"
@@ -33,10 +42,10 @@ class LightControl():
         :param color: String
         :return:
         """
-        pass
+        self.setRGBWLed(led_number, RGBW().setNaturalColor(color))
 
-    def setRGBLed(self, led_number, red, green, blue):
-        """Set color for one LED using rgb notation
+    def setRGBLed(self, led_number, red, green, blue, white):
+        """Set color for one LED using rgbw notation
 
         :param led_number: int
         :param red: int
@@ -44,13 +53,19 @@ class LightControl():
         :param blue: int
         :return:
         """
-        pass
+        rgbw = RGBW()
+        rgbw.red = red
+        rgbw.green = green
+        rgbw.blue = blue
+        rgbw.white = white
 
-    def setRGBLed(self, led_number, rgb_obj):
-        """Set color for one LED using rgb object
+        self.setRGBWLed(led_number, rgbw)
+
+    def setRGBWLed(self, led_number, rgb_obj):
+        """Set color for one LED using rgbw object
 
         :param led_number: int
-        :param rgb_obj: RGB
+        :param rgb_obj: RGBW
         :return:
         """
         pass
