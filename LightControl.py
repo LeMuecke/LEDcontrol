@@ -132,7 +132,7 @@ class LightControl():
         green.setNaturalColor("green")
         green = green.getColor()
         blue = RGBW()
-        blue = blue.setNaturalColor("blue")
+        blue.setNaturalColor("blue")
         blue = blue.getColor()
 
         while True:
