@@ -201,3 +201,18 @@ class LightControl():
             strip.setPixelColor(random.randint(0,254), color)
             strip.show()
             time.sleep(wait_ms / 1000.0)
+
+    def randomJustOne(self, rgbw_obj, wait_ms):
+        strip = self.strip
+        color = rgbw_obj.getColor()
+        off = Color(0,0,0,0)
+
+        while True:
+            rnd = random.randint(0,254)
+            for i in range(strip.numPixels()):
+                if i == rnd:
+                    strip.setPixelColor(i, color)
+                else:
+                    strip.setPixelColor(i, off)
+            strip.show()
+            time.sleep(wait_ms / 1000.0)
