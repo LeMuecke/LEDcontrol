@@ -1,6 +1,7 @@
 from RGBW import RGBW
 import time
 from neopixel import *
+import random
 
 
 class LightControl():
@@ -191,3 +192,12 @@ class LightControl():
                     strip.setPixelColor(j, self.wheel(i))
                 strip.show()
                 time.sleep(rate_ms / 1000.0)
+
+    def randomKeepOn(self, rgbw_obj, wait_ms):
+        strip = self.strip
+        color = rgbw_obj.getColor()
+
+        while True:
+            strip.setPixelColor(random.randint(0,254), color)
+            strip.show()
+            time.sleep(wait_ms / 1000.0)
