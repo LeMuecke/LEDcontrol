@@ -46,13 +46,17 @@ class LightControl():
 
         self.setRGBWAll(rgbw)
 
-    def setRGBWAll(self, rgb_obj):
+    def setRGBWAll(self, rgbw_obj):
         """Set color for all LEDs using rgbw object
 
-        :param rgb_obj: RGBW
+        :param rgbw_obj: RGBW
         :return:
         """
-        pass
+        color = rgbw_obj.getColor()
+        strip = self.strip
+        for i in range(strip.numPixels()):
+            strip.setPixelColor(i, color)
+        strip.show()
 
     def setColorLed(self, led_number, color):
         """Set a specific color for one LED"
@@ -63,7 +67,7 @@ class LightControl():
         """
         self.setRGBWLed(led_number, RGBW().setNaturalColor(color))
 
-    def setRGBLed(self, led_number, red, green, blue, white):
+    def setRGBWLed(self, led_number, red, green, blue, white):
         """Set color for one LED using rgbw notation
 
         :param led_number: int
@@ -89,8 +93,7 @@ class LightControl():
         """
         color = rgbw_obj.getColor()
         strip = self.strip
-        for i in range(strip.numPixels()):
-            strip.setPixelColor(i, color)
+        strip.setPixelColor(i, color)
         strip.show()
 
     def colorWipe(self, rgbw_obj, wait_ms=50):
