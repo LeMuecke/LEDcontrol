@@ -1,3 +1,4 @@
+from neopixel import *
 
 class RGBW():
     red = 0
@@ -32,3 +33,6 @@ class RGBW():
             green = 0
             blue = 0
             white = 255
+
+    def getColor(self):
+        return Color(self.green, self.red, self.blue, self.white)

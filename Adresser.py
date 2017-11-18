@@ -14,6 +14,11 @@ class Adresser():
     LED_CHANNEL     = 0  # set to '1' for GPIOs 13, 19, 41, 45 or 53
     LED_STRIP       = ws.SK6812_STRIP_RGBW  # Strip type and colour ordering
 
+    def __init__(self):
+        strip = Adafruit_NeoPixel(self.LED_COUNT, self.LED_PIN, self.LED_FREQ_HZ, self.LED_DMA, self.LED_INVERT,
+                                  self.LED_BRIGHTNESS, self.LED_CHANNEL, self.LED_STRIP)
+        strip.begin()
+
     def wheel(self, pos):
         """Generate rainbow colors across 0-255 positions."""
         if pos < 85:
@@ -44,10 +49,9 @@ class Adresser():
                 for i in range(0, strip.numPixels(), 3):
                     strip.setPixelColor(i + q, 0)
 
-    def colorWipe(self, strip, color, wait_ms=50):
+    def colorWipe(self, color, wait_ms=50):
         """Wipe color across display a pixel at a time."""
-        strip = Adafruit_NeoPixel(self.LED_COUNT, self.LED_PIN, self.LED_FREQ_HZ, self.LED_DMA, self.LED_INVERT, self.LED_BRIGHTNESS, self.LED_CHANNEL, self.LED_STRIP)
-        strip.begin()
+        strip = self.strip
         for i in range(strip.numPixels()):
             strip.setPixelColor(i, color)
             strip.show()
