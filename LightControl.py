@@ -44,9 +44,9 @@ class LightControl():
         rgbw.blue = blue
         rgbw.white = white
 
-        self.setRGBWAll(rgbw)
+        self.setRGBWAllObj(rgbw)
 
-    def setRGBWAll(self, rgbw_obj):
+    def setRGBWAllObj(self, rgbw_obj):
         """Set color for all LEDs using rgbw object
 
         :param rgbw_obj: RGBW
@@ -82,9 +82,9 @@ class LightControl():
         rgbw.blue = blue
         rgbw.white = white
 
-        self.setRGBWLed(led_number, rgbw)
+        self.setRGBWLedObj(led_number, rgbw)
 
-    def setRGBWLed(self, led_number, rgbw_obj):
+    def setRGBWLedObj(self, led_number, rgbw_obj):
         """Set color for one LED using rgbw object
 
         :param led_number: int
