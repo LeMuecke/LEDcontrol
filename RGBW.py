@@ -20,25 +20,25 @@ class RGBW():
         """
 
         if(color == "red"):
-            red = 255
-            green = 0
-            blue = 0
-            white = 0
+            self.red = 255
+            self.green = 0
+            self.blue = 0
+            self.white = 0
         elif(color == "green"):
-            red = 0
-            green = 255
-            blue = 0
-            white = 0
+            self.red = 0
+            self.green = 255
+            self.blue = 0
+            self.white = 0
         elif(color == "blue"):
-            red = 0
-            green = 0
-            blue = 255
-            white = 0
+            self.red = 0
+            self.green = 0
+            self.blue = 255
+            self.white = 0
         elif(color == "white"):
-            red = 0
-            green = 0
-            blue = 0
-            white = 255
+            self.red = 0
+            self.green = 0
+            self.blue = 0
+            self.white = 255
 
     def getColor(self):
         return Color(self.green, self.red, self.blue, self.white)
