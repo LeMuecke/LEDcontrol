@@ -46,6 +46,8 @@ class Adresser():
 
     def colorWipe(self, strip, color, wait_ms=50):
         """Wipe color across display a pixel at a time."""
+        strip = Adafruit_NeoPixel(self.LED_COUNT, self.LED_PIN, self.LED_FREQ_HZ, self.LED_DMA, self.LED_INVERT, self.LED_BRIGHTNESS, self.LED_CHANNEL, self.LED_STRIP)
+        strip.begin()
         for i in range(strip.numPixels()):
             strip.setPixelColor(i, color)
             strip.show()
