@@ -150,3 +150,35 @@ class LightControl():
                 strip.setPixelColor(i, blue)
             strip.show()
             time.sleep(rate_ms / 1000.0)
+
+    def wheel(self, pos):
+        """Generate rainbow colors across 0-255 positions."""
+        if pos < 85:
+            return Color(pos * 3, 255 - pos * 3, 0)
+        elif pos < 170:
+            pos -= 85
+            return Color(255 - pos * 3, 0, pos * 3)
+        else:
+            pos -= 170
+            return Color(0, pos * 3, 255 - pos * 3)
+
+    def rainbowCycle(self, wait_ms=20, iterations=5):
+        """Draw rainbow that uniformly distributes itself across all pixels."""
+        strip = self.strip
+        for j in range(256 * iterations):
+            for i in range(strip.numPixels()):
+                strip.setPixelColor(i, wheel(((i * 256 / strip.numPixels()) + j) & 255))
+            strip.show()
+            time.sleep(wait_ms / 1000.0)
+
+    def theaterChaseRainbow(self, wait_ms=50):
+        """Rainbow movie theater light style chaser animation."""
+        strip = self.strip
+        for j in range(256):
+            for q in range(3):
+                for i in range(0, strip.numPixels(), 3):
+                    strip.setPixelColor(i + q, wheel((i + j) % 255))
+                strip.show()
+                time.sleep(wait_ms / 1000.0)
+                for i in range(0, strip.numPixels(), 3):
+                    strip.setPixelColor(i + q, 0)
