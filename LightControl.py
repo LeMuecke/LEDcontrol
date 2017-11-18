@@ -190,5 +190,5 @@ class LightControl():
                 strip.setPixelColor(j, self.wheel(i))
             strip.show()
             time.sleep(rate_ms / 1000.0)
-            if i == 255:
+            if i == 254:
                 i = 0
