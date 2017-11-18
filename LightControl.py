@@ -182,3 +182,11 @@ class LightControl():
                 time.sleep(wait_ms / 1000.0)
                 for i in range(0, strip.numPixels(), 3):
                     strip.setPixelColor(i + q, 0)
+
+    def rainbowAll(self, rate_ms):
+        strip = self.strip
+        for i in range(strip.numPixels()):
+            for j in range(strip.numPixels()):
+                strip.setPixelColor(j, self.wheel(i))
+            strip.show()
+            time.sleep(rate_ms / 1000.0)
