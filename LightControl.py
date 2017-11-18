@@ -111,3 +111,25 @@ class LightControl():
             strip.setPixelColor(i, color)
             strip.show()
             time.sleep(wait_ms / 1000.0)
+
+    def strobe(self, rgbw_obj, rate_ms=100):
+        strip = Adafruit_NeoPixel(self.LED_COUNT, self.LED_PIN, self.LED_FREQ_HZ, self.LED_DMA, self.LED_INVERT,
+                                  self.LED_BRIGHTNESS, self.LED_CHANNEL, self.LED_STRIP)
+        strip.begin()
+        color = rgbw_obj.getColor()
+        off = RGBW()
+        off.red = 0
+        off.green = 0
+        off.blue = 0
+        off.white = 0
+        off = off.getColor()
+
+        while True:
+            for i in range(strip.numPixels()):
+                strip.setPixelColor(i, color)
+            strip.show()
+            time.sleep(rate_ms / 1000.0)
+            for i in range(strip.numPixels()):
+                strip.setPixelColor(i, off)
+            strip.show()
+            time.sleep(rate_ms / 1000.0)
