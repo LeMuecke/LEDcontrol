@@ -17,6 +17,7 @@ class LightControl():
     LED_STRIP = ws.SK6812_STRIP_RGBW  # Strip type and colour ordering
 
     def __init__(self):
+        global strip
         strip = Adafruit_NeoPixel(self.LED_COUNT, self.LED_PIN, self.LED_FREQ_HZ, self.LED_DMA, self.LED_INVERT,
                                   self.LED_BRIGHTNESS, self.LED_CHANNEL, self.LED_STRIP)
         strip.begin()
@@ -98,7 +99,7 @@ class LightControl():
         """
         color = rgbw_obj.getColor()
         strip = self.strip
-        strip.setPixelColor(i, color)
+        strip.setPixelColor(led_number, color)
         strip.show()
 
     def colorWipe(self, rgbw_obj, wait_ms=50):
