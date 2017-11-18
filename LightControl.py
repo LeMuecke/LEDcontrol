@@ -17,10 +17,9 @@ class LightControl():
     LED_STRIP = ws.SK6812_STRIP_RGBW  # Strip type and colour ordering
 
     def __init__(self):
-        global strip
-        strip = Adafruit_NeoPixel(self.LED_COUNT, self.LED_PIN, self.LED_FREQ_HZ, self.LED_DMA, self.LED_INVERT,
+        self.strip = Adafruit_NeoPixel(self.LED_COUNT, self.LED_PIN, self.LED_FREQ_HZ, self.LED_DMA, self.LED_INVERT,
                                   self.LED_BRIGHTNESS, self.LED_CHANNEL, self.LED_STRIP)
-        strip.begin()
+        self.strip.begin()
 
 
     def setColorAll(self, color):
@@ -53,13 +52,8 @@ class LightControl():
         :param rgbw_obj: RGBW
         :return:
         """
-
-        strip = Adafruit_NeoPixel(self.LED_COUNT, self.LED_PIN, self.LED_FREQ_HZ, self.LED_DMA, self.LED_INVERT,
-                                  self.LED_BRIGHTNESS, self.LED_CHANNEL, self.LED_STRIP)
-        strip.begin()
-
         color = rgbw_obj.getColor()
-        #strip = self.strip
+        strip = self.strip
         for i in range(strip.numPixels()):
             strip.setPixelColor(i, color)
         strip.show()
@@ -82,11 +76,7 @@ class LightControl():
         :param blue: int
         :return:
         """
-        rgbw = RGBW()
-        rgbw.red = red
-        rgbw.green = green
-        rgbw.blue = blue
-        rgbw.white = white
+        rgbw = RGBW().setColors(red, green, blue, white)
 
         self.setRGBWLedObj(led_number, rgbw)
 
@@ -97,30 +87,27 @@ class LightControl():
         :param rgbw_obj: RGBW
         :return:
         """
-        color = rgbw_obj.getColor()
+
         strip = self.strip
+        color = rgbw_obj.getColor()
         strip.setPixelColor(led_number, color)
         strip.show()
 
     def colorWipe(self, rgbw_obj, wait_ms=50):
         """Wipe color across display a pixel at a time."""
-        color = rgbw_obj.getColor()
         strip = self.strip
+
+        color = rgbw_obj.getColor()
         for i in range(strip.numPixels()):
             strip.setPixelColor(i, color)
             strip.show()
             time.sleep(wait_ms / 1000.0)
 
     def strobe(self, rgbw_obj, rate_ms=100):
-        strip = Adafruit_NeoPixel(self.LED_COUNT, self.LED_PIN, self.LED_FREQ_HZ, self.LED_DMA, self.LED_INVERT,
-                                  self.LED_BRIGHTNESS, self.LED_CHANNEL, self.LED_STRIP)
-        strip.begin()
+        strip = self.strip
+
         color = rgbw_obj.getColor()
-        off = RGBW()
-        off.red = 0
-        off.green = 0
-        off.blue = 0
-        off.white = 0
+        off = RGBW().setColors(0,0,0,0)
         off = off.getColor()
 
         while True:
@@ -134,4 +121,25 @@ class LightControl():
             time.sleep(rate_ms / 1000.0)
 
     def RGBstrobe(self, rate_ms=100):
-        pass
+        strip = Adafruit_NeoPixel(self.LED_COUNT, self.LED_PIN, self.LED_FREQ_HZ, self.LED_DMA, self.LED_INVERT,
+                                  self.LED_BRIGHTNESS, self.LED_CHANNEL, self.LED_STRIP)
+        strip.begin()
+        red = RGBW().setNaturalColor("red").getColor()
+        green = RGBW().setNaturalColor("green").getColor()
+        blue = RGBW().setNaturalColor("blue").getColor()
+
+        while True:
+            for i in range(strip.numPixels()):
+                strip.setPixelColor(i, red)
+            strip.show()
+            time.sleep(rate_ms / 1000.0)
+
+            for i in range(strip.numPixels()):
+                strip.setPixelColor(i, green)
+            strip.show()
+            time.sleep(rate_ms / 1000.0)
+
+            for i in range(strip.numPixels()):
+                strip.setPixelColor(i, blue)
+            strip.show()
+            time.sleep(rate_ms / 1000.0)

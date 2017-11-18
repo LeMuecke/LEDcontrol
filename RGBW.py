@@ -6,6 +6,12 @@ class RGBW():
     blue = 0
     white = 0
 
+    def setColors(self, red, green, blue, white):
+        self.red = red
+        self.green = green
+        self.blue = blue
+        self.white = white
+
     def setNaturalColor(self, color):
         """Sets the according natural color to it's rgbw value
 
