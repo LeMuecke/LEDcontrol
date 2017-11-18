@@ -124,9 +124,12 @@ class LightControl():
         strip = Adafruit_NeoPixel(self.LED_COUNT, self.LED_PIN, self.LED_FREQ_HZ, self.LED_DMA, self.LED_INVERT,
                                   self.LED_BRIGHTNESS, self.LED_CHANNEL, self.LED_STRIP)
         strip.begin()
-        red = RGBW().setNaturalColor("red").getColor()
-        green = RGBW().setNaturalColor("green").getColor()
-        blue = RGBW().setNaturalColor("blue").getColor()
+        red = RGBW()
+        red = red.setNaturalColor("red").getColor()
+        green = RGBW()
+        green = green.setNaturalColor("green").getColor()
+        blue = RGBW()
+        blue = blue.setNaturalColor("blue").getColor()
 
         while True:
             for i in range(strip.numPixels()):
