@@ -16,8 +16,6 @@ class LightControl():
     LED_CHANNEL = 0  # set to '1' for GPIOs 13, 19, 41, 45 or 53
     LED_STRIP = ws.SK6812_STRIP_RGBW  # Strip type and colour ordering
 
-    global strip
-
     def __init__(self):
         strip = Adafruit_NeoPixel(self.LED_COUNT, self.LED_PIN, self.LED_FREQ_HZ, self.LED_DMA, self.LED_INVERT,
                                   self.LED_BRIGHTNESS, self.LED_CHANNEL, self.LED_STRIP)
@@ -133,3 +131,6 @@ class LightControl():
                 strip.setPixelColor(i, off)
             strip.show()
             time.sleep(rate_ms / 1000.0)
+
+    def RGBstrobe(self, rate_ms=100):
+        pass
