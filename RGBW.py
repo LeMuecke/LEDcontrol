@@ -19,22 +19,22 @@ class RGBW():
         :return:
         """
 
-        if(color == "red"):
+        if color == "red":
             self.red = 255
             self.green = 0
             self.blue = 0
             self.white = 0
-        elif(color == "green"):
+        elif color == "green":
             self.red = 0
             self.green = 255
             self.blue = 0
             self.white = 0
-        elif(color == "blue"):
+        elif color == "blue":
             self.red = 0
             self.green = 0
             self.blue = 255
             self.white = 0
-        elif(color == "white"):
+        elif color == "white":
             self.red = 0
             self.green = 0
             self.blue = 0
@@ -42,3 +42,14 @@ class RGBW():
 
     def getColor(self):
         return Color(self.green, self.red, self.blue, self.white)
+
+    def getLowerBrightness(self, brightness):
+        """
+        Returns RGBW() with a lower overall brightness
+        :param brightness: int, 255 is full brightness, 0 is darkness
+        :return: RGBW
+        """
+        factor = brightness / 255
+        scaledLight = RGBW()
+        scaledLight.setColors(self.red * factor, self.green * factor, self.blue * factor, self.white * factor)
+        return scaledLight

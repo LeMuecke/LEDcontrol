@@ -216,3 +216,14 @@ class LightControl():
                     strip.setPixelColor(i, off)
             strip.show()
             time.sleep(wait_ms / 1000.0)
+
+    def fadeIn(self, rgbw_obj, time):
+        strip = self.strip
+        step = time / 255.0
+
+        for i in range(256):
+            color = rgbw_obj.getLowerBrightness(i)
+            for j in range(strip.numPixels()):
+                strip.setPixelColor(j, color)
+            strip.show()
+            time.sleep(step / 1000.0)
