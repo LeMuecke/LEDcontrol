@@ -217,9 +217,9 @@ class LightControl():
             strip.show()
             time.sleep(wait_ms / 1000.0)
 
-    def fadeIn(self, rgbw_obj, time):
+    def fadeIn(self, rgbw_obj, time_to_full):
         strip = self.strip
-        step = time / 255.0
+        step = time_to_full / 255.0
 
         for i in range(256):
             color = rgbw_obj.getLowerBrightness(i)
