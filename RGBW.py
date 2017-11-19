@@ -49,7 +49,7 @@ class RGBW():
         :param brightness: int, 255 is full brightness, 0 is darkness
         :return: RGBW
         """
-        factor = brightness / 255
+        factor = brightness / 255.0
         scaledLight = RGBW()
         scaledLight.setColors(int(self.red * factor), int(self.green * factor), int(self.blue * factor), int(self.white * factor))
         return scaledLight
