@@ -51,5 +51,5 @@ class RGBW():
         """
         factor = brightness / 255
         scaledLight = RGBW()
-        scaledLight.setColors(self.red * factor, self.green * factor, self.blue * factor, self.white * factor)
+        scaledLight.setColors(int(self.red * factor), int(self.green * factor), int(self.blue * factor), int(self.white * factor))
         return scaledLight
