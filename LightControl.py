@@ -223,6 +223,7 @@ class LightControl():
 
         for i in range(256):
             color = rgbw_obj.getLowerBrightness(i)
+            color = color.getColor()
             for j in range(strip.numPixels()):
                 strip.setPixelColor(j, color)
             strip.show()
