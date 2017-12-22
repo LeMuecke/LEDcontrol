@@ -6,6 +6,12 @@ class RGBW():
     blue = 0
     white = 0
 
+    def __init__(self, red, green, blue, white):
+        self.red = red
+        self.green = green
+        self.blue = blue
+        self.white = white
+
     def setColors(self, red, green, blue, white):
         self.red = red
         self.green = green

@@ -17,6 +17,14 @@ class LightControl():
     LED_CHANNEL = 0  # set to '1' for GPIOs 13, 19, 41, 45 or 53
     LED_STRIP = ws.SK6812_STRIP_RGBW  # Strip type and colour ordering
 
+    #PRESET COLORS
+    red = RGBW(255,0,0,0)
+    green = RGBW(0,255,0,0)
+    blue = RGBW(0,0,255,0)
+    white = RGBW(0,0,0,255)
+    full_white = RGBW(255,255,255,255)
+    yellow = RGBW(255,255,0,0)
+
     def __init__(self):
         self.strip = Adafruit_NeoPixel(self.LED_COUNT, self.LED_PIN, self.LED_FREQ_HZ, self.LED_DMA, self.LED_INVERT,
                                   self.LED_BRIGHTNESS, self.LED_CHANNEL, self.LED_STRIP)
