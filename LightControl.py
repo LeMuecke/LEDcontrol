@@ -222,6 +222,7 @@ class LightControl():
             time.sleep(wait_ms / 1000.0)
 
     def randomMultiple(self, rgbw_obj, wait_ms, quantity):
+        #TODO: Somehow when stopping this with STRG+C, Python crashes with segfault, implement a way to safely shut this down
         strip = self.strip
         color = rgbw_obj.getColor()
         off = Color(0,0,0,0)
@@ -236,6 +237,29 @@ class LightControl():
                     strip.setPixelColor(i, off)
             strip.show()
             time.sleep(wait_ms / 1000.0)
+
+    def fireMode(self, wait_ms):
+
+        strip = self.strip
+        while True:
+            for i in range(0,255):
+                flicker = random.randint(0,150)
+                r = 255-flicker
+                g = 215-flicker
+                b = 40-flicker
+
+                if r < 0:
+                    r = 0
+                if g < 0:
+                    g = 0
+                if b < 0:
+                    b = 0
+                color = RGBW(r,g,b,0)
+                color = color.getColor()
+                strip.setPixelColor(i,color)
+            strip.show()
+            time.sleep(wait_ms / 1000.0)
+
 
     def fadeIn(self, rgbw_obj, time_to_full):
         strip = self.strip
