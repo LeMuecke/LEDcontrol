@@ -234,15 +234,15 @@ class LightControl():
             strip.show()
             time.sleep(wait_ms / 1000.0)
 
-    def fireMode(self, wait_ms):
+    def fireMode(self, wait_ms, red=255, green=100, blue=40):
 
         strip = self.strip
         while True:
             for i in range(0,255):
                 flicker = random.randint(0,150)
-                r = 255-flicker
-                g = 100-flicker
-                b = 40-flicker
+                r = red-flicker
+                g = green-flicker
+                b = blue-flicker
 
                 if r < 0:
                     r = 0
