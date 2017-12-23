@@ -47,11 +47,7 @@ class LightControl():
         :param blue: int
         :return:
         """
-        rgbw = RGBW()
-        rgbw.red = red
-        rgbw.green = green
-        rgbw.blue = blue
-        rgbw.white = white
+        rgbw = RGBW(red, green, blue, white)
 
         self.setRGBWAllObj(rgbw)
 
@@ -245,7 +241,7 @@ class LightControl():
             for i in range(0,255):
                 flicker = random.randint(0,150)
                 r = 255-flicker
-                g = 215-flicker
+                g = 100-flicker
                 b = 40-flicker
 
                 if r < 0:
