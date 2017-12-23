@@ -231,7 +231,7 @@ class LightControl():
             for i in range(strip.numPixels()):
                 if i == rnd:
                     for j in range(0,quantity - 1):
-                        strip.setPixelColor(i+j, color)
+                        strip.setPixelColor(i-j, color)
                 else:
                     strip.setPixelColor(i, off)
             strip.show()
