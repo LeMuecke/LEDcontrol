@@ -229,8 +229,9 @@ class LightControl():
         while True:
             rnd = random.randint(0,254)
             for i in range(strip.numPixels()):
-                if i-(quantity/2) > rnd and i+(quantity/2+1) < rnd:
-                    strip.setPixelColor(i, color)
+                if i == rnd:
+                    for j in range(0,quantity - 1):
+                        strip.setPixelColor(i+j, color)
                 else:
                     strip.setPixelColor(i, off)
             strip.show()
