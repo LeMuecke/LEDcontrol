@@ -23,8 +23,7 @@ def setAllColor():
     green = request.args.get('green', 0)
     blue = request.args.get('blue', 0)
     white = request.args.get('white', 0)
-    color = RGBW(red, green, blue, white)
-    l.setRGBWAllObj(color)
+    l.setRGBWAll(red, green, blue, white)
     return redirect("http://192.168.2.37:5000/")
 
 @app.route("/colorwipe", methods=['GET'])
