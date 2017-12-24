@@ -110,6 +110,7 @@ class LightControl():
             time.sleep(wait_ms / 1000.0)
 
     def wipeSnake(self, rgbw_obj, pixels_number=1 ,wait_ms=50):
+        #TODO: Seems a bit slow
         strip = self.strip
 
         color = rgbw_obj.getColor()
@@ -142,9 +143,8 @@ class LightControl():
             time.sleep(rate_ms / 1000.0)
 
     def RGBstrobe(self, rate_ms=100):
-        strip = Adafruit_NeoPixel(self.LED_COUNT, self.LED_PIN, self.LED_FREQ_HZ, self.LED_DMA, self.LED_INVERT,
-                                  self.LED_BRIGHTNESS, self.LED_CHANNEL, self.LED_STRIP)
-        strip.begin()
+        strip = self.strip
+
         red = self.red
         red = red.getColor()
         green = self.green
@@ -200,7 +200,7 @@ class LightControl():
                 for i in range(0, strip.numPixels(), 3):
                     strip.setPixelColor(i + q, 0)
 
-    def rainbowAll(self, rate_ms):
+    def rainbowFull(self, rate_ms):
         strip = self.strip
         while True:
             for i in range(255):
@@ -250,8 +250,7 @@ class LightControl():
             strip.show()
             time.sleep(wait_ms / 1000.0)
 
-    def fireMode(self, wait_ms, red=255, green=100, blue=40):
-        #230,70,10 is a good setting
+    def fireMode(self, wait_ms, red=240, green=80, blue=10):
         strip = self.strip
         while True:
             for i in range(strip.numPixels()):
