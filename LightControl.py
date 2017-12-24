@@ -24,6 +24,7 @@ class LightControl():
     white = RGBW(0,0,0,255)
     full_white = RGBW(255,255,255,255)
     yellow = RGBW(255,255,0,0)
+    off = RGBW(0,0,0,0)
 
     def __init__(self):
         self.strip = Adafruit_NeoPixel(self.LED_COUNT, self.LED_PIN, self.LED_FREQ_HZ, self.LED_DMA, self.LED_INVERT,
@@ -108,12 +109,27 @@ class LightControl():
             strip.show()
             time.sleep(wait_ms / 1000.0)
 
+    def wipeSnake(self, rgbw_obj, pixels_number=1 ,wait_ms=50):
+        strip = self.strip
+
+        color = rgbw_obj.getColor()
+        while True:
+            for start in range(strip.numPixels()):
+                for i in range(strip.numPixels()):
+                    if i in range(start, start+pixels_number):
+                        strip.setPixelColor(i, color)
+                    else:
+                        strip.setPixelColor(i, self.off)
+                strip.show()
+                time.sleep(wait_ms / 1000.0)
+
+
+
     def strobe(self, rgbw_obj, rate_ms=100):
         strip = self.strip
 
         color = rgbw_obj.getColor()
-        off = RGBW(0,0,0,0)
-        off = off.getColor()
+        off = self.off.getColor()
 
         while True:
             for i in range(strip.numPixels()):
@@ -235,10 +251,10 @@ class LightControl():
             time.sleep(wait_ms / 1000.0)
 
     def fireMode(self, wait_ms, red=255, green=100, blue=40):
-
+        #230,70,10 is a good setting
         strip = self.strip
         while True:
-            for i in range(0,255):
+            for i in range(strip.numPixels()):
                 flicker = random.randint(0,150)
                 r = red-flicker
                 g = green-flicker
