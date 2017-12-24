@@ -24,49 +24,49 @@ def setAllColor():
     return redirect("http://192.168.2.37:5000/")
 
 @app.route("/colorwipe", methods=['GET'])
-def setAllColor():
+def colorWipe():
     return redirect("http://192.168.2.37:5000/")
 
 @app.route("/wipesnake", methods=['GET'])
-def setAllColor():
+def wipeSanke():
     return redirect("http://192.168.2.37:5000/")
 
 @app.route("/strobe", methods=['GET'])
-def setAllColor():
+def strobe():
     return redirect("http://192.168.2.37:5000/")
 
 @app.route("/rgbstrobe", methods=['GET'])
-def setAllColor():
+def rgbstrobe():
     return redirect("http://192.168.2.37:5000/")
 
 @app.route("/rainbowcycle", methods=['GET'])
-def setAllColor():
+def rainbowcycle():
     return redirect("http://192.168.2.37:5000/")
 
 @app.route("/theaterrainbowchase", methods=['GET'])
-def setAllColor():
+def theaterrainbowchase():
     return redirect("http://192.168.2.37:5000/")
 
 @app.route("/rainbowfull", methods=['GET'])
-def setAllColor():
+def rainbowfull():
     return redirect("http://192.168.2.37:5000/")
 
 @app.route("/randomledskeepon", methods=['GET'])
-def setAllColor():
+def randomledskeepon():
     return redirect("http://192.168.2.37:5000/")
 
 @app.route("/randomleds", methods=['GET'])
-def setAllColor():
+def randomleds():
     return redirect("http://192.168.2.37:5000/")
 
 @app.route("/randommultiple", methods=['GET'])
-def setAllColor():
+def randommultiple():
     return redirect("http://192.168.2.37:5000/")
 
 @app.route("/firemode", methods=['GET'])
-def setAllColor():
+def firemode():
     return redirect("http://192.168.2.37:5000/")
 
 @app.route("/fadein", methods=['GET'])
-def setAllColor():
+def fadein():
     return redirect("http://192.168.2.37:5000/")
