@@ -119,7 +119,7 @@ class LightControl():
                     if i in range(start, start+pixels_number):
                         strip.setPixelColor(i, color)
                     else:
-                        strip.setPixelColor(i, self.off)
+                        strip.setPixelColor(i, self.off.getColor())
                 strip.show()
                 time.sleep(wait_ms / 1000.0)
 
