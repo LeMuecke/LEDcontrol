@@ -10,7 +10,7 @@ def extractColor():
     green = request.args.get('green', 0)
     blue = request.args.get('blue', 0)
     white = request.args.get('white', 0)
-    color = RGBW(red, green, blue, white)
+    color = RGBW(int(red), int(green), int(blue), int(white))
     return color
 
 @app.route("/")
