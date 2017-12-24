@@ -70,3 +70,6 @@ def firemode():
 @app.route("/fadein", methods=['GET'])
 def fadein():
     return redirect("http://192.168.2.37:5000/")
+
+if __name__ == '__main__':
+    app.run(debug=True, host='192.168.2.37')
