@@ -17,9 +17,13 @@ def extractColor():
 def hello():
     return render_template('InterfaceLinks.html')
 
-@app.route("/setallcolor", methods=['GET'])
+@app.route("/setallcolor", methods=['POST'])
 def setAllColor():
-    color = extractColor()
+    red = request.args.get('red', 0)
+    green = request.args.get('green', 0)
+    blue = request.args.get('blue', 0)
+    white = request.args.get('white', 0)
+    color = RGBW(red, green, blue, white)
     l.setRGBWAllObj(color)
     return redirect("http://192.168.2.37:5000/")
 
