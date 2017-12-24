@@ -17,7 +17,7 @@ def extractColor():
 def hello():
     return render_template('InterfaceLinks.html')
 
-@app.route("/setallcolor", methods=['POST'])
+@app.route("/setallcolor", methods=['GET'])
 def setAllColor():
     red = request.args.get('red', 0)
     green = request.args.get('green', 0)
