@@ -2,7 +2,13 @@
 
 <body>
 
-<input id="red" name="red" placeholder="red" size="5"><input id="green" name="green" placeholder="green" size="5"><input id="blue" name="blue" placeholder="blue" size="5"><input id="white" name="white" placeholder="white" size="5"></br></br>
+<form action="color_input">
+    <input id="red" name="red" placeholder="red" size="5">
+    <input id="green" name="green" placeholder="green" size="5">
+    <input id="blue" name="blue" placeholder="blue" size="5">
+    <input id="white" name="white" placeholder="white" size="5"></br></br>
+    <input type="submit" value="Set all colors">
+</form>
 
 <a href="http://192.168.2.37:5000/setallcolor">Set all to color</a> </br>
 <a href="http://192.168.2.37:5000/colorwipe">Color Wipe</a> <input id="waitms_colorwipe" name="waitms_colorwipe" placeholder="Fastness (in ms)" size="10"> </br>
