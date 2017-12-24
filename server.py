@@ -28,18 +28,30 @@ def setAllColor():
 
 @app.route("/colorwipe", methods=['GET'])
 def colorWipe():
+    color = extractColor()
+    wait_ms = request.args.get('waitms_colorwipe', 0)
+    l.colorWipe(color, wait_ms)
     return redirect("http://192.168.2.37:5000/")
 
 @app.route("/wipesnake", methods=['GET'])
-def wipeSanke():
+def wipeSnake():
+    color = extractColor()
+    pixel_number = request.args.get('pixelnumers_wipesnake', 1)
+    wait_ms = request.args.get('waitms_wipesnake', 0)
+    l.wipeSnake(color, pixel_number, wait_ms)
     return redirect("http://192.168.2.37:5000/")
 
 @app.route("/strobe", methods=['GET'])
 def strobe():
+    color = extractColor()
+    wait_ms = request.args.get('waitms_strobe', 0)
+    l.strobe(color, wait_ms)
     return redirect("http://192.168.2.37:5000/")
 
 @app.route("/rgbstrobe", methods=['GET'])
 def rgbstrobe():
+    wait_ms = request.args.get('waitms_rgbstrobe', 0)
+    l.RGBstrobe(wait_ms)
     return redirect("http://192.168.2.37:5000/")
 
 @app.route("/rainbowcycle", methods=['GET'])

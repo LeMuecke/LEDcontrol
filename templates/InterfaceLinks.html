@@ -6,23 +6,103 @@
     <input id="red" name="red" placeholder="red" size="5">
     <input id="green" name="green" placeholder="green" size="5">
     <input id="blue" name="blue" placeholder="blue" size="5">
-    <input id="white" name="white" placeholder="white" size="5"></br></br>
-    <input type="submit" value="Set all colors">
+    <input id="white" name="white" placeholder="white" size="5">
+    <input type="submit" value="Set all colors"></br></br>
 </form>
 
-<a href="http://192.168.2.37:5000/setallcolor">Set all to color</a> </br>
-<a href="http://192.168.2.37:5000/colorwipe">Color Wipe</a> <input id="waitms_colorwipe" name="waitms_colorwipe" placeholder="Fastness (in ms)" size="10"> </br>
-<a href="http://192.168.2.37:5000/wipesnake">Wipe Snake</a> <input id="pixelnumbers_wipesnake" name="pixelnumers_wipesnake" placeholder="pixel numbers" size="8"> <input id="waitms_wipesnake" name="waitms_wipesnake" placeholder="Fastness (in ms)" size="10"> </br>
-<a href="http://192.168.2.37:5000/strobe">Strobe</a> <input id="waitms_strobe" name="waitms_strobe" placeholder="Fastness (in ms)" size="10"> </br>
-<a href="http://192.168.2.37:5000/rgbstrobe">RGBstrobe</a> <input id="waitms_rgbstrobe" name="waitms_rgbstrobe" placeholder="Fastness (in ms)" size="10"> </br>
-<a href="http://192.168.2.37:5000/rainbowcycle">Rainbow Cycle</a> <input id="waitms_rainbowcycle" name="waitms_rainbowcycle" placeholder="Fastness (in ms)" size="10"> <input id="iterations_rainbowcycle" name="iterations_rainbowcycle" placeholder="Iterations" size="5"> </br>
-<a href="http://192.168.2.37:5000/theaterrainbowchase">Theater Rainbow Chase</a> <input id="waitms_theaterrainbowchase" name="waitms_theaterrainbowchase" placeholder="Fastness (in ms)" size="10"> </br>
-<a href="http://192.168.2.37:5000/rainbowfull">Rainbow Full</a> <input id="ratems_rainbowfull" name="ratems_rainbowfull" placeholder="Fastness (in ms)" size="10"> </br>
-<a href="http://192.168.2.37:5000/randomledskeepon">Random LEDs (keep on)</a> <input id="waitms_randomledskeepon" name="waitms_randomledskeepon" placeholder="Fastness (in ms)" size="10"> </br>
-<a href="http://192.168.2.37:5000/randomleds">Random LEDs</a> <input id="waitms_randomleds" name="waitms_randomleds" placeholder="Fastness (in ms)" size="10"> </br>
-<a href="http://192.168.2.37:5000/randommultiple">Random Multiple (do not use)</a> <input id="waitms_randommultiple" name="waitms_randommultiple" placeholder="Fastness (in ms)" size="10"> <input id="quantity_randommultiple" name="quantitiy_randommultiple" placeholder="Quantitiy" size="5"> </br>
-<a href="http://192.168.2.37:5000/firemode">Fire Mode</a> <input id="waitms_firemode" name="waitms_firemode" placeholder="Fastness (in ms)" size="10"> </br>
-<a href="http://192.168.2.37:5000/fadein">Fade in</a> <input id="timetofull_fadein" name="timetofull_fadein" placeholder="Fastness (in ms)" size="10"> </br>
+<form action="colorwipe">
+    <input id="red_colorwipe" name="red" placeholder="red" size="5">
+    <input id="green_colorwipe" name="green" placeholder="green" size="5">
+    <input id="blue_colorwipe" name="blue" placeholder="blue" size="5">
+    <input id="white_colorwipe" name="white" placeholder="white" size="5">
+    <input id="waitms_colorwipe" name="waitms_colorwipe" placeholder="Fastness (in ms)" size="10">
+    <input type="submit" value="Colorwipe"></br></br>
+</form>
+
+<form action="wipesnake">
+    <input id="red_wipesnake" name="red" placeholder="red" size="5">
+    <input id="green_wipesnake" name="green" placeholder="green" size="5">
+    <input id="blue_wipesnake" name="blue" placeholder="blue" size="5">
+    <input id="white_wipesnake" name="white" placeholder="white" size="5">
+    <input id="pixelnumbers_wipesnake" name="pixelnumbers_wipesnake" placeholder="pixel numbers" size="8">
+    <input id="waitms_wipesnake" name="waitms_wipesnake" placeholder="Fastness (in ms)" size="10">
+    <input type="submit" value="Wipesnake"></br></br>
+</form>
+
+<form action="strobe">
+    <input id="red_strobe" name="red" placeholder="red" size="5">
+    <input id="green_strobe" name="green" placeholder="green" size="5">
+    <input id="blue_strobe" name="blue" placeholder="blue" size="5">
+    <input id="white_strobe" name="white" placeholder="white" size="5">
+    <input id="waitms_strobe" name="waitms_strobe" placeholder="Fastness (in ms)" size="10">
+    <input type="submit" value="Strobe"></br></br>
+</form>
+
+<form action="rgbstrobe">
+    <input id="waitms_rgbstrobe" name="waitms_rgbstrobe" placeholder="Fastness (in ms)" size="10">
+    <input type="submit" value="RGB Strobe"></br></br>
+</form>
+
+<form action="rainbowcycle">
+    <input id="waitms_rainbowcycle" name="waitms_rainbowcycle" placeholder="Fastness (in ms)" size="10">
+    <input id="iterations_rainbowcycle" name="iterations_rainbowcycle" placeholder="Iterations" size="5">
+    <input type="submit" value="Wipesnake"></br></br>
+</form>
+
+<form action="theaterrainbowchase">
+    <input id="waitms_theaterrainbowchase" name="waitms_theaterrainbowchase" placeholder="Fastness (in ms)" size="10">
+    <input type="submit" value="Theater rainbowchase"></br></br>
+</form>
+
+<form action="rainbowfull">
+    <input id="ratems_rainbowfull" name="ratems_rainbowfull" placeholder="Fastness (in ms)" size="10">
+    <input type="submit" value="Rainbow full"></br></br>
+</form>
+
+<form action="randomledskeepon">
+    <input id="red_randomledskeepon" name="red" placeholder="red" size="5">
+    <input id="green_randomledskeepon" name="green" placeholder="green" size="5">
+    <input id="blue_randomledskeepon" name="blue" placeholder="blue" size="5">
+    <input id="white_randomledskeepon" name="white" placeholder="white" size="5">
+    <input id="waitms_randomledskeepon" name="waitms_randomledskeepon" placeholder="Fastness (in ms)" size="10">
+    <input type="submit" value="Random LEDs keep on"></br></br>
+</form>
+
+<form action="randomleds">
+    <input id="red_randomleds" name="red" placeholder="red" size="5">
+    <input id="green_randomleds" name="green" placeholder="green" size="5">
+    <input id="blue_randomleds" name="blue" placeholder="blue" size="5">
+    <input id="white_randomleds" name="white" placeholder="white" size="5">
+    <input id="waitms_randomleds" name="waitms_randomleds" placeholder="Fastness (in ms)" size="10">
+    <input type="submit" value="Random LEDs"></br></br>
+</form>
+
+<form action="randommultiple">
+    <input id="red_randommultiple" name="red" placeholder="red" size="5">
+    <input id="green_randommultiple" name="green" placeholder="green" size="5">
+    <input id="blue_randommultiple" name="blue" placeholder="blue" size="5">
+    <input id="white_randommultiple" name="white" placeholder="white" size="5">
+    <input id="waitms_randommultiple" name="waitms_randommultiple" placeholder="Fastness (in ms)" size="10">
+    <input id="quantity_randommultiple" name="quantitiy_randommultiple" placeholder="Quantitiy" size="5">
+    <input type="submit" value="Random Multiple (might crash)"></br></br>
+</form>
+
+<form action="firemode">
+    <input id="waitms_firemode" name="waitms_firemode" placeholder="Fastness (in ms)" size="10">
+    <input type="submit" value="Fire mode"></br></br>
+</form>
+
+<form action="fadein">
+    <input id="red_fadein" name="red" placeholder="red" size="5">
+    <input id="green_fadein" name="green" placeholder="green" size="5">
+    <input id="blue_fadein" name="blue" placeholder="blue" size="5">
+    <input id="white_fadein" name="white" placeholder="white" size="5">
+    <input id="timetofull_fadein" name="timetofull_fadein" placeholder="Fastness (in ms)" size="10">
+    <input type="submit" value="Fadein"></br></br>
+</form>
+
+
+
 </body>
 
 </html>
