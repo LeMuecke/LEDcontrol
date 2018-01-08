@@ -250,14 +250,16 @@ class LightControl():
             strip.show()
             time.sleep(wait_ms / 1000.0)
 
-    def fireMode(self, wait_ms, red=240, green=80, blue=10):
+    def fireMode(self, wait_ms, red=240, green=80, blue=10, flicker=150):
         strip = self.strip
         while True:
             for i in range(strip.numPixels()):
-                flicker = random.randint(0,150)
-                r = red-flicker
-                g = green-flicker
-                b = blue-flicker
+                flickerr = random.randint(0,flicker)
+                flickerg = random.randint(0,flicker)
+                flickerb = random.randint(0,flicker)
+                r = red-flickerr
+                g = green-flickerg
+                b = blue-flickerb
 
                 if r < 0:
                     r = 0
