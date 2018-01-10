@@ -59,6 +59,5 @@ class RGBW():
         :return: RGBW
         """
         factor = brightness / 255.0
-        scaledLight = RGBW()
-        scaledLight.setColors(int(self.red * factor), int(self.green * factor), int(self.blue * factor), int(self.white * factor))
+        scaledLight = RGBW(int(self.red * factor), int(self.green * factor), int(self.blue * factor), int(self.white * factor))
         return scaledLight
