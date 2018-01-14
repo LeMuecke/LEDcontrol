@@ -94,7 +94,7 @@ def firemode():
 def fadein():
     color = extractColor()
     timetofull = request.args.get('timetofull_fadein', 0)
-    l.fadeIn(color, timetofull)
+    l.fadeIn(color, int(timetofull))
     return redirect(address)
 
 if __name__ == '__main__':
