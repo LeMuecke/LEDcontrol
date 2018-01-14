@@ -1,6 +1,7 @@
 from flask import Flask, redirect, request, render_template
 from LightControl import LightControl
 from RGBW import RGBW
+from threading import Thread
 
 address = "http://192.168.0.6:5432"     #also change address on the bottom
 
@@ -91,6 +92,9 @@ def firemode():
 
 @app.route("/fadein", methods=['GET'])
 def fadein():
+    color = extractColor()
+    timetofull = request.args.get('timetofull_fadein', 0)
+    l.fadeIn(color, timetofull)
     return redirect(address)
 
 if __name__ == '__main__':
