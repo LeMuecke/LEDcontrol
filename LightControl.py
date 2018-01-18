@@ -82,7 +82,7 @@ class LightControl():
         :param blue: int
         :return:
         """
-        rgbw = RGBW().setColors(red, green, blue, white)
+        rgbw = RGBW(red,green,blue,white)
 
         self.setRGBWLedObj(led_number, rgbw)
 
