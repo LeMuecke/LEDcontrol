@@ -106,5 +106,10 @@ def fadetocolor():
     s.fadeToColor(color)
     return redirect(address)
 
+@app.route("/dim", methods=['GET'])
+def dim():
+    s.dim()
+    return redirect(address)
+
 if __name__ == '__main__':
     app.run(debug=True, host='192.168.0.6', port=5432)

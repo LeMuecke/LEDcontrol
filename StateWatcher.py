@@ -31,3 +31,19 @@ class StateWatcher:
                 self.current_color.white -= 1
 
             self.l.setRGBWAllObj(self.current_color)
+
+    def dim(self):
+        new_red = self.current_color.red - 50
+        new_green = self.current_color.green - 50
+        new_blue = self.current_color.blue - 50
+        new_white = self.current_color.white - 50
+        if new_red < 0:
+            new_red = 0
+        if new_green < 0:
+            new_green = 0
+        if new_blue < 0:
+            new_blue = 0
+        if new_white < 0:
+            new_white = 0
+
+        self.fadeToColor(RGBW(new_red, new_green, new_blue, new_white))
