@@ -126,13 +126,13 @@ class LightControl():
 
 
 
-    def strobe(self, rgbw_obj, rate_ms=100):
+    def strobe(self, rgbw_obj, rate_ms=100, duration=-1):
         strip = self.strip
 
         color = rgbw_obj.getColor()
         off = self.off.getColor()
 
-        while True:
+        while duration > 0 or duration == -1:
             for i in range(strip.numPixels()):
                 strip.setPixelColor(i, color)
             strip.show()
@@ -141,6 +141,8 @@ class LightControl():
                 strip.setPixelColor(i, off)
             strip.show()
             time.sleep(rate_ms / 1000.0)
+            if duration >= 0:
+                duration -= 1
 
     def RGBstrobe(self, rate_ms=100):
         strip = self.strip

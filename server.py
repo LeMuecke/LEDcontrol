@@ -50,7 +50,8 @@ def wipeSnake():
 def strobe():
     color = extractColor()
     wait_ms = request.args.get('waitms_strobe', 0)
-    l.strobe(color, int(wait_ms))
+    duration = request.args.get('duration', -1)
+    l.strobe(color, int(wait_ms), int(duration))
     return redirect(address)
 
 @app.route("/rgbstrobe", methods=['GET'])
