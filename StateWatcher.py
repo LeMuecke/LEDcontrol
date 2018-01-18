@@ -30,4 +30,4 @@ class StateWatcher:
             elif self.current_color.white> color.white:
                 self.current_color.white -= 1
 
-            self.l.setRGBWAllObj(self.current_color)    
+            self.l.setRGBWAllObj(self.current_color)

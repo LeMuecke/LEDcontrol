@@ -1,12 +1,14 @@
 from flask import Flask, redirect, request, render_template
 from LightControl import LightControl
 from RGBW import RGBW
+from StateWatcher import StateWatcher
 from threading import Thread
 
 address = "http://192.168.0.6:5432"     #also change address on the bottom
 
 app = Flask(__name__)
 l = LightControl()
+s = StateWatcher()
 
 def extractColor():
     red = request.args.get('red', 0)
@@ -95,6 +97,12 @@ def fadein():
     color = extractColor()
     timetofull = request.args.get('timetofull_fadein', 0)
     l.fadeIn(color, int(timetofull))
+    return redirect(address)
+
+@app.route("/fadetocolor", methods=['GET'])
+def fadetocolor():
+    color = extractColor()
+    s.fadeToColor(color)
     return redirect(address)
 
 if __name__ == '__main__':
